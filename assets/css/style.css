@@ -3,6 +3,84 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ===== ANIMATIONS ===== */
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+  .animate-zoom-in {
+    animation: zoomIn 0.8s ease-out forwards;
+  }
+  .animate-delay-100 {
+    animation-delay: 0.1s;
+  }
+  .animate-delay-200 {
+    animation-delay: 0.2s;
+  }
+  .animate-delay-300 {
+    animation-delay: 0.3s;
+  }
+  .animate-delay-400 {
+    animation-delay: 0.4s;
+  }
+  .animate-delay-500 {
+    animation-delay: 0.5s;
+  }
+  .animate-pulse {
+    animation: pulse 2s infinite;
+  }
+  .animate-ring {
+    animation: ring 0.5s ease-in-out;
+  }
+  .animate-bounce {
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slideUp {
+    from { 
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes zoomIn {
+    from { 
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to { 
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+  }
+  @keyframes ring {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(15deg); }
+    50% { transform: rotate(-15deg); }
+    75% { transform: rotate(10deg); }
+    100% { transform: rotate(0deg); }
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+}
+
 /* ===== COMPONENTS ===== */
 @layer components {
   /* Navbar */
@@ -28,32 +106,83 @@
   .btn-outline {
     @apply border-2 border-white hover:border-pinex-accent hover:bg-white/10 text-white font-bold py-4 px-8 rounded-full transition-all flex items-center;
   }
+
+  /* FAQ Components - Actualizado */
+  .faq-item {
+    @apply border border-gray-300 rounded-lg overflow-hidden transition-all duration-300;
+  }
+  .faq-btn {
+    @apply w-full text-left p-5 bg-gray-50 font-semibold flex justify-between items-center hover:bg-gray-100 transition-colors duration-300;
+  }
+  .faq-content {
+    @apply max-h-0 overflow-hidden transition-all duration-300 ease-in-out;
+  }
+  .faq-item.active {
+    @apply border-pinex-accent shadow-md;
+  }
+  .faq-item.active .faq-content {
+    @apply max-h-[500px] p-5 border-t border-gray-200;
+  }
+  .faq-item.active .faq-btn i {
+    @apply rotate-180;
+  }
+  .faq-icon {
+    @apply bg-pinex-primary/10 text-pinex-primary rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0;
+  }
+
+  /* Hero Sections */
+  .hero-section {
+    @apply relative pt-32 pb-20 overflow-hidden;
+  }
+  .hero-bg {
+    @apply absolute inset-0 bg-cover bg-center opacity-80;
+  }
+  .hero-content {
+    @apply container mx-auto px-4 relative z-10 text-center;
+  }
+
+  /* Testimonial Cards */
+  .testimonial-card {
+    @apply bg-white p-6 rounded-xl shadow text-center transform transition-all duration-300 hover:scale-[1.02] hover:shadow-lg;
+  }
+
+  /* About Section */
+  .about-section {
+    @apply flex flex-col md:flex-row items-center gap-10;
+  }
+  .about-image {
+    @apply rounded-xl shadow-lg w-full h-auto object-cover transform transition-all hover:scale-105 duration-500;
+  }
 }
 
 /* ===== LAYOUTS ===== */
-/* Hero Sections */
-.hero-section {
-  @apply pt-32 pb-20 bg-pinex-dark text-white relative overflow-hidden;
-}
-.hero-bg {
-  @apply absolute inset-0 bg-cover bg-center opacity-30;
-}
-.hero-content {
-  @apply container mx-auto px-4 xl:px-0 relative z-10;
+@layer components {
+  /* Modals */
+  .service-modal {
+    @apply fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden;
+  }
+  .service-modal-content {
+    @apply bg-white rounded-xl max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto;
+  }
+
+  /* Swiper */
+  .swiper-slide {
+    @apply flex items-center justify-center;
+  }
+  .brand-logo {
+    @apply h-16 max-w-[120px] object-contain grayscale hover:grayscale-0 transition;
+  }
 }
 
-/* Modals */
-.service-modal {
-  @apply fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden;
-}
-.service-modal-content {
-  @apply bg-white rounded-xl max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto;
+/* Estilos base para el acordeón */
+.faq-content {
+  will-change: max-height;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
-/* Swiper */
-.swiper-slide {
-  @apply flex items-center justify-center;
-}
-.brand-logo {
-  @apply h-16 object-contain grayscale hover:grayscale-0 transition;
+/* Rotación para íconos */
+.rotate-180 {
+  transform: rotate(180deg);
 }

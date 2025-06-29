@@ -57,16 +57,16 @@ include 'includes/navbar.php';
             
             foreach ($servicios as $servicio) {
                 echo '
-                <div class="service-card bg-gray-50 p-8 rounded-xl border border-gray-200 hover:border-pinex-accent transition-all duration-300 group">
+                <div class="service-card bg-gray-50 p-8 rounded-xl border border-gray-200 hover:border-pinex-accent transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg cursor-pointer group" data-modal-target="'.$servicio['modal_id'].'">
                     <div class="service-icon w-20 h-20 bg-pinex-primary/10 text-pinex-primary rounded-2xl flex items-center justify-center text-3xl mb-6 mx-auto transition-all duration-500 group-hover:bg-pinex-primary group-hover:text-white">
                         <i class="fas '.$servicio['icono'].'"></i>
                     </div>
                     <h3 class="text-2xl font-bold mb-3 text-center font-title text-pinex-dark group-hover:text-pinex-primary transition-colors">'.$servicio['titulo'].'</h3>
                     <p class="text-gray-600 mb-4 text-center">'.$servicio['descripcion'].'</p>
                     <div class="text-center mt-6">
-                        <a href="servicios.php?modal='.$servicio['modal_id'].'" class="inline-block bg-pinex-accent hover:bg-pinex-accent/90 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
+                        <button class="inline-block bg-pinex-accent hover:bg-pinex-accent/90 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg modal-open-btn">
                             Ver servicio
-                        </a>
+                        </button>
                     </div>
                 </div>';
             }
@@ -83,22 +83,123 @@ include 'includes/navbar.php';
 
 <!-- Nuestras Marcas -->
 <section class="py-20 bg-gray-100">
-    <div class="container mx-auto px-4 xl:px-0">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-10 font-title text-pinex-dark">
-            Nuestras <span class="text-pinex-primary">Marcas</span>
-        </h2>
-        <div class="swiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide flex items-center justify-center"><img src="assets/images/brands/starlink-logo.png" alt="Starlink" class="h-16 object-contain grayscale hover:grayscale-0 transition" /></div>
-                <div class="swiper-slide flex items-center justify-center"><img src="assets/images/brands/ubiquiti-logo.png" alt="Ubiquiti" class="h-16 object-contain grayscale hover:grayscale-0 transition" /></div>
-                <div class="swiper-slide flex items-center justify-center"><img src="assets/images/brands/mikrotik-logo.png" alt="Mikrotik" class="h-16 object-contain grayscale hover:grayscale-0 transition" /></div>
-                <div class="swiper-slide flex items-center justify-center"><img src="assets/images/brands/tp-link-logo.png" alt="TP-Link" class="h-16 object-contain grayscale hover:grayscale-0 transition" /></div>
-                <div class="swiper-slide flex items-center justify-center"><img src="assets/images/brands/hik-vision-logo.png" alt="Hikvision" class="h-16 object-contain grayscale hover:grayscale-0 transition" /></div>
-                <div class="swiper-slide flex items-center justify-center"><img src="assets/images/brands/dahua-logo.png" alt="Dahua" class="h-16 object-contain grayscale hover:grayscale-0 transition" /></div>
-            </div>
+  <div class="container mx-auto px-4 xl:px-0">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-10 font-title text-pinex-dark">
+      Nuestras <span class="text-pinex-primary">Marcas</span>
+    </h2>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide flex items-center justify-center">
+          <img src="assets/images/brands/starlink-logo.png" alt="Starlink" 
+               class="h-16 max-w-[120px] object-contain grayscale hover:grayscale-0 transition" />
         </div>
+        <div class="swiper-slide flex items-center justify-center">
+          <img src="assets/images/brands/ubiquiti-logo.png" alt="Ubiquiti" 
+               class="h-16 max-w-[120px] object-contain grayscale hover:grayscale-0 transition" />
+        </div>
+        <div class="swiper-slide flex items-center justify-center">
+          <img src="assets/images/brands/mikrotik-logo.png" alt="Mikrotik" 
+               class="h-16 max-w-[120px] object-contain grayscale hover:grayscale-0 transition" />
+        </div>
+        <div class="swiper-slide flex items-center justify-center">
+          <img src="assets/images/brands/tp-link-logo.png" alt="TP-Link" 
+               class="h-16 max-w-[120px] object-contain grayscale hover:grayscale-0 transition" />
+        </div>
+        <div class="swiper-slide flex items-center justify-center">
+          <img src="assets/images/brands/hik-vision-logo.png" alt="Hikvision" 
+               class="h-16 max-w-[120px] object-contain grayscale hover:grayscale-0 transition" />
+        </div>
+        <div class="swiper-slide flex items-center justify-center">
+          <img src="assets/images/brands/dahua-logo.png" alt="Dahua" 
+               class="h-16 max-w-[120px] object-contain grayscale hover:grayscale-0 transition" />
+        </div>
+      </div>
     </div>
+  </div>
 </section>
+
+<!-- Modales -->
+<div id="starlink-modal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 scale-95 z-50">
+  <div class="modal-content bg-white rounded-lg p-8 max-w-lg mx-4 relative transform transition-transform duration-300">
+    <button class="modal-close absolute top-4 right-4 text-gray-500 hover:text-gray-900 text-2xl font-bold">&times;</button>
+    <h3 class="text-2xl font-bold mb-4">Instalación Starlink</h3>
+    <p>Configuración profesional de Starlink Residencial y Móvil para conexión en zonas remotas.</p>
+  </div>
+</div>
+
+<div id="repetidores-modal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 scale-95 z-50">
+  <div class="modal-content bg-white rounded-lg p-8 max-w-lg mx-4 relative transform transition-transform duration-300">
+    <button class="modal-close absolute top-4 right-4 text-gray-500 hover:text-gray-900 text-2xl font-bold">&times;</button>
+    <h3 class="text-2xl font-bold mb-4">Repetidores Celular</h3>
+    <p>Amplificamos la señal móvil en áreas con poca cobertura.</p>
+  </div>
+</div>
+
+<div id="camaras-modal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 scale-95 z-50">
+  <div class="modal-content bg-white rounded-lg p-8 max-w-lg mx-4 relative transform transition-transform duration-300">
+    <button class="modal-close absolute top-4 right-4 text-gray-500 hover:text-gray-900 text-2xl font-bold">&times;</button>
+    <h3 class="text-2xl font-bold mb-4">Cámaras Vigilancia</h3>
+    <p>Sistemas de seguridad con monitoreo remoto 24/7.</p>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Abrir modales al hacer click en botón
+  document.querySelectorAll('.modal-open-btn').forEach(button => {
+    button.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const card = this.closest('.service-card');
+      const modalId = card.getAttribute('data-modal-target');
+      const modal = document.getElementById(modalId);
+      
+      if (modal) {
+        // Cerrar cualquier modal abierto primero
+        document.querySelectorAll('.modal').forEach(m => {
+          m.classList.add('opacity-0', 'pointer-events-none', 'scale-95');
+          m.classList.remove('opacity-100', 'pointer-events-auto', 'scale-100');
+        });
+        
+        // Abrir el modal seleccionado
+        modal.classList.remove('opacity-0', 'pointer-events-none', 'scale-95');
+        modal.classList.add('opacity-100', 'pointer-events-auto', 'scale-100');
+        
+        // Deshabilitar scroll del body
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
+  // Cerrar modal solo con botón "X"
+  document.querySelectorAll('.modal-close').forEach(button => {
+    button.addEventListener('click', function() {
+      const modal = this.closest('.modal');
+      if (modal) {
+        modal.classList.add('opacity-0', 'pointer-events-none', 'scale-95');
+        modal.classList.remove('opacity-100', 'pointer-events-auto', 'scale-100');
+        
+        // Restaurar scroll del body
+        document.body.style.overflow = 'auto';
+      }
+    });
+  });
+
+  // Prevenir cierre al hacer clic fuera del contenido
+  document.querySelectorAll('.modal').forEach(modal => {
+    modal.addEventListener('click', function(e) {
+      // Solo permitir cerrar con el botón X
+      e.stopPropagation();
+    });
+  });
+
+  // Prevenir cierre con tecla ESC
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      e.preventDefault();
+    }
+  });
+});
+</script>
 
 <?php 
 include 'includes/footer.php';
