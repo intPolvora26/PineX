@@ -3,6 +3,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ===== FONTS ===== */
+@font-face {
+  font-family: 'PinexFont';
+  src: url('../fonts/PinexFont-Regular.woff2') format('woff2'),
+       url('../fonts/PinexFont-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ===== ANIMATIONS ===== */
 @layer utilities {
   .animate-fade-in {
@@ -28,6 +38,18 @@
   }
   .animate-delay-500 {
     animation-delay: 0.5s;
+  }
+  .animate-delay-600 {
+    animation-delay: 0.6s;
+  }
+  .animate-delay-700 {
+    animation-delay: 0.7s;
+  }
+  .animate-delay-800 {
+    animation-delay: 0.8s;
+  }
+  .animate-delay-900 {
+    animation-delay: 0.9s;
   }
   .animate-pulse {
     animation: pulse 2s infinite;
@@ -107,12 +129,12 @@
     @apply border-2 border-white hover:border-pinex-accent hover:bg-white/10 text-white font-bold py-4 px-8 rounded-full transition-all flex items-center;
   }
 
-  /* FAQ Components - Actualizado */
+  /* FAQ Components */
   .faq-item {
-    @apply border border-gray-300 rounded-lg overflow-hidden transition-all duration-300;
+    @apply border border-gray-300 rounded-lg overflow-hidden transition-all duration-300 hover:border-pinex-accent hover:shadow-lg;
   }
   .faq-btn {
-    @apply w-full text-left p-5 bg-gray-50 font-semibold flex justify-between items-center hover:bg-gray-100 transition-colors duration-300;
+    @apply w-full text-left p-5 bg-gray-50 font-semibold flex justify-between items-center hover:bg-gray-100 transition-colors duration-300 group;
   }
   .faq-content {
     @apply max-h-0 overflow-hidden transition-all duration-300 ease-in-out;
@@ -127,7 +149,7 @@
     @apply rotate-180;
   }
   .faq-icon {
-    @apply bg-pinex-primary/10 text-pinex-primary rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0;
+    @apply rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0 transition-all duration-500;
   }
 
   /* Hero Sections */
@@ -174,15 +196,49 @@
   }
 }
 
-/* Estilos base para el acordeón */
+/* ===== BASE STYLES ===== */
 .faq-content {
   will-change: max-height;
   transform: translateZ(0);
   backface-visibility: hidden;
   perspective: 1000px;
+  transition: max-height 0.3s ease-out, opacity 0.2s ease;
 }
 
-/* Rotación para íconos */
 .rotate-180 {
   transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-pinex-primary rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-pinex-accent;
+}
+
+/* Selection styles */
+::selection {
+  @apply bg-pinex-primary text-white;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    @apply bg-white text-black;
+  }
+  .print-break {
+    page-break-after: always;
+  }
 }
