@@ -82,13 +82,15 @@ include 'includes/navbar.php';
 <section class="py-20 bg-gray-100">
     <div class="container mx-auto px-4 xl:px-0">
         <div class="max-w-4xl mx-auto text-center mb-12 animate-slide-up">
-            <h2 class="text-3xl font-bold mb-4 font-title text-pinex-dark">Visítanos</h2>
+            <h2 class="text-3xl font-bold mb-4 font-title text-pinex-dark">Visítanos</h2>   
+            <h3 class="text-2xl font-semibold mb-1 text-pinex-dark">De lunes a viernes</h3>
+            <h4 class="text-xl mb-4 text-pinex-dark">En un horario de 9:00 a 14:00 hrs</h4>
             <p class="text-gray-600 max-w-2xl mx-auto animate-slide-up animate-delay-100"><?= ADDRESS ?></p>
         </div>
         
         <div class="aspect-w-16 aspect-h-9 bg-gray-200 rounded-xl overflow-hidden animate-fade-in animate-delay-200">
             <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.415837386991!2d-103.3938209240349!3d20.68878198085711!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDQxJzE5LjYiTiAxMDPCsDIzJzM0LjkiVw!5e0!3m2!1ses!2smx!4v1620000000000!5m2!1ses!2smx" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1116.6260227343253!2d-104.60668805142113!3d19.71827391352989!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8424f5846b822945%3A0xafedbb593703742a!2sC.%20Abasolo%20141%2C%2048800%20Villa%20Purificaci%C3%B3n%2C%20Jal.!5e0!3m2!1sen!2smx!4v1751596288099!5m2!1sen!2smx"
                 width="100%" 
                 height="450" 
                 style="border:0;" 
@@ -103,3 +105,5 @@ include 'includes/navbar.php';
 <?php 
 include 'includes/footer.php';
 ?>
+
+<!-- src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.415837386991!2d-103.3938209240349!3d20.68878198085711!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDQxJzE5LjYiTiAxMDPCsDIzJzM0LjkiVw!5e0!3m2!1ses!2smx!4v1620000000000!5m2!1ses!2smx" 

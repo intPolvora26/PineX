@@ -31,7 +31,7 @@
                 <ul class="space-y-3">
                     <li class="flex items-start">
                         <i class="fas fa-map-marker-alt text-pinex-accent mt-1 mr-3"></i>
-                        <span class="text-gray-400">Av. Principal 123,  Villa Purificacion, Jalisco, Mexico</span>
+                        <span class="text-gray-400"><?= ADDRESS ?></span> 
                     </li>
                     <li class="flex items-center">
                         <i class="fas fa-phone-alt text-pinex-accent mr-3"></i>
@@ -69,7 +69,7 @@
     </div>
 </footer>
 
-<!-- Botón Flotante WhatsApp -->
+<!-- Botón Flotante WhatsApp --> /* Av. Principal 123,  Villa Purificacion, Jalisco, Mexico
 <a href="https://wa.me/523322058309?text=Hola%20%F0%9F%98%81%0AMe%20interesa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios.%20%C2%BFPodr%C3%ADan%20asesorarme%2C%20por%20favor%3F" class="fixed bottom-6 right-6 bg-pinex-accent hover:bg-pinex-accent/90 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-lg z-50 transition-all transform hover:scale-110" aria-label="Contactar por WhatsApp">
     <i class="fab fa-whatsapp"></i>
 </a>

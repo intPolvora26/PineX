@@ -110,7 +110,9 @@ include 'includes/navbar.php';
                     ['src' => 'assets/images/brands/mikrotik-logo.png', 'alt' => 'Mikrotik'],
                     ['src' => 'assets/images/brands/tp-link-logo.png', 'alt' => 'TP-Link'],
                     ['src' => 'assets/images/brands/hik-vision-logo.png', 'alt' => 'Hikvision'],
-                    ['src' => 'assets/images/brands/dahua-logo.png', 'alt' => 'Dahua']
+                    ['src' => 'assets/images/brands/dahua-logo.png', 'alt' => 'Dahua'],
+                    ['src' => 'assets/images/brands/ring-logo.png', 'alt' => 'Ring'],
+                    ['src' => 'assets/images/brands/tapo-logo.png', 'alt' => 'Tapo']
                 ];
                 
                 foreach ($marcas as $marca) {
@@ -179,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const modalId = card.getAttribute('data-modal-target');
             const modal = document.getElementById(modalId);
             
-            if (modal) {
+            if (modal) { 
                 // Cerrar cualquier modal abierto
                 document.querySelectorAll('[id$="-modal"]').forEach(m => {
                     m.classList.add('opacity-0', 'pointer-events-none', 'scale-95');

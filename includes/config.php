@@ -21,7 +21,7 @@ define('SALES_EMAIL', 'ventas@pinex.com.mx');
 define('SUPPORT_EMAIL', 'soporte@pinex.com.mx');
 define('WHATSAPP_NUMBER', '523322058309');
 define('PHONE_NUMBER', '+52 33 2205 8309');
-define('ADDRESS', 'Av. Principal #123, Guadalajara, Jalisco');
+define('ADDRESS', 'C. Abasolo #141, Villa Purificación,, Jalisco');
 
 // ==============================================
 // CONFIGURACIÓN DE BASE DE DATOS
